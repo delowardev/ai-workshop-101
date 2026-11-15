@@ -20,12 +20,12 @@
 | Time | Slides | What you do |
 |---|---|---|
 | 00:00–03:00 | 1–4 | Intro: what Claude Code is and where it runs |
-| 03:00–08:00 | 5–7 | Local vs cloud, CLAUDE.md, the toolkit. Show the real `CLAUDE.md` and `.claude/commands/` on GitHub. |
-| 08:00–18:00 | 8–9 | **Demo 1** (below), then the recap slide |
-| 18:00–25:00 | 10–11 | **Demo 2** (below), then the recap slide |
-| 25:00–30:00 | 12–15 | Prompting, guardrails, homework, Q&A |
+| 03:00–10:00 | 5–9 | Local vs cloud, CLAUDE.md, the toolkit, connectors (ClickUp, Sentry), skills, hooks and subagents. Show the real `CLAUDE.md` and `.claude/commands/` on GitHub. |
+| 10:00–18:00 | 10–11 | **Demo 1** (below), then the recap slide |
+| 18:00–25:00 | 12–13 | **Demo 2** (below), then the recap slide |
+| 25:00–30:00 | 14–17 | Prompting, guardrails, homework, Q&A |
 
-## Demo 1: issue to pull request (10 min)
+## Demo 1: issue to pull request (8 min)
 
 1. Show issue #1 on GitHub (2 T-shirts = $50.00, still charged $5.99).
 2. Optional: open the running app and reproduce it in 20 seconds.
