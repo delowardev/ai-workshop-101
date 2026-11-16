@@ -9,6 +9,6 @@ The site says "Free shipping on orders of $50.00 or more", so shipping should be
 See `docs/acceptance-criteria/shipping.md`, criterion 1.
 
 **Steps to reproduce**
-1. `npm start` and open http://localhost:3000
+1. `npm run dev` and open http://localhost:3000
 2. Click "Add to cart" on T-shirt twice
 3. Look at the Shipping line

@@ -10,7 +10,7 @@ issue → Claude Code session → failing test → fix → pull request → CI �
 
 ```bash
 npm install
-npm start          # http://localhost:3000
+npm run dev        # http://localhost:3000
 npm test           # unit tests (Vitest)
 npm run e2e        # browser tests (Playwright)
 ```
@@ -19,7 +19,7 @@ npm run e2e        # browser tests (Playwright)
 
 | Path | What it is |
 |---|---|
-| `src/`, `public/` | The QuickCart app (Express API and a plain HTML/JS page) |
+| `src/` | The QuickCart app: Next.js App Router, React components and API route handlers (TypeScript) |
 | `tests/`, `e2e/` | Unit tests and Playwright tests |
 | `docs/acceptance-criteria/` | What each feature must do; used in the QA demo |
 | `CLAUDE.md` | Team rules Claude reads at the start of every session |

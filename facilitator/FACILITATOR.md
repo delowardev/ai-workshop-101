@@ -35,12 +35,12 @@
    /fix-issue 1
    ```
 
-4. While it works (2–4 minutes), narrate: it reads the issue, finds `src/cart.js`, writes a failing test
+4. While it works (2–4 minutes), narrate: it reads the issue, finds `src/lib/cart.ts`, writes a failing test
    because `CLAUDE.md` says to, then fixes it. Point at each step as it appears.
 5. Open the pull request: the description, the diff (a one-character fix plus a test), and the CI run.
 6. Make the point: Claude opened the PR; a person merges it.
 
-**Expected fix:** in `shippingCents()` in `src/cart.js`, `subtotal > FREE_SHIPPING_THRESHOLD_CENTS` becomes `>=`.
+**Expected fix:** in `shippingCents()` in `src/lib/cart.ts`, `subtotal > FREE_SHIPPING_THRESHOLD_CENTS` becomes `>=`.
 
 ## Demo 2: QA partner (7 min)
 
@@ -62,10 +62,10 @@
 
 | Bug | Where | Found by |
 |---|---|---|
-| $50.00 exactly still pays shipping (`>` instead of `>=`) | `shippingCents()`, `src/cart.js` | Issue #1, demo 1 |
-| Discount codes are case- and space-sensitive | `applyDiscount()`, `src/cart.js` | Demo 2, criterion 3 |
-| Zero and negative quantities accepted | `addItem()`, `src/cart.js` | Issue #2, homework |
-| Codes like `toString` or `constructor` are accepted and make the total `NaN` (plain-object lookup) | `applyDiscount()`, `src/cart.js` | Bonus: `/code-review` or `/security-review` often catches it |
+| $50.00 exactly still pays shipping (`>` instead of `>=`) | `shippingCents()`, `src/lib/cart.ts` | Issue #1, demo 1 |
+| Discount codes are case- and space-sensitive | `applyDiscount()`, `src/lib/cart.ts` | Demo 2, criterion 3 |
+| Zero and negative quantities accepted | `addItem()`, `src/lib/cart.ts` | Issue #2, homework |
+| Codes like `toString` or `constructor` are accepted and make the total `NaN` (plain-object lookup) | `applyDiscount()`, `src/lib/cart.ts` | Bonus: `/code-review` or `/security-review` often catches it |
 
 Issue #3 (free-shipping hint) is a small feature for homework: UI, API data and an e2e test.
 

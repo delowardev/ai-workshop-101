@@ -7,7 +7,7 @@ import {
   calculateTotals,
   formatCents,
   SHIPPING_CENTS,
-} from '../src/cart.js';
+} from '@/lib/cart';
 
 describe('addItem', () => {
   it('adds a product to the cart', () => {
