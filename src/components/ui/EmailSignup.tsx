@@ -9,6 +9,7 @@ type Props = {
   buttonClassName?: string;
   /** Submit button text */
   buttonLabel?: string;
+  placeholder?: string;
   className?: string;
 };
 
@@ -16,7 +17,7 @@ type Props = {
  * Email capture form. This is a static concept site, so nothing is sent:
  * submitting only shows a confirmation message.
  */
-export function EmailSignup({ id, variant = 'outlined', buttonClassName = 'bg-brand-500 text-ink-900', buttonLabel = 'Start free', className = '' }: Props) {
+export function EmailSignup({ id, variant = 'outlined', buttonClassName = 'bg-brand-500 text-ink-900', buttonLabel = 'Start free', placeholder = 'you@company.com', className = '' }: Props) {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -38,7 +39,7 @@ export function EmailSignup({ id, variant = 'outlined', buttonClassName = 'bg-br
           id={id}
           type="email"
           required
-          placeholder="you@company.com"
+          placeholder={placeholder}
           className="h-[52px] min-w-0 flex-1 border-0 bg-transparent px-[18px] text-base text-ink-900 outline-none placeholder:text-ink-500"
         />
         <button

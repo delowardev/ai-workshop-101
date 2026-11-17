@@ -11,7 +11,7 @@ export function NewsletterCta() {
           </h2>
           <p className="m-0 text-[17px] leading-[1.55] text-ink-200">New guides and templates in your inbox every Thursday.</p>
         </div>
-        <EmailSignup id="newsletter-email" variant="plain" buttonLabel="Subscribe" className="max-w-[460px] flex-[1_1_380px] pt-8" />
+        <EmailSignup id="newsletter-email" variant="plain" buttonLabel="Subscribe" placeholder="Your email" className="max-w-[460px] flex-[1_1_380px] pt-8" />
       </div>
     </section>
   );
