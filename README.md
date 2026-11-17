@@ -29,6 +29,32 @@ npm test           # type check + browser tests (Playwright)
 | `.github/workflows/pages.yml` | Deploys the static site to GitHub Pages on every push to `main` |
 | `slides/claude-code-workshop.pdf` | The workshop slides (18 slides, PDF) |
 
+## Progress
+
+Updated as work lands. Each item is built in its own Claude Code session and ships as a pull request.
+
+### Pages
+
+| Page | Route | Status | PR | Notes |
+|---|---|---|---|---|
+| Homepage | `/` | ✅ Done | — | Built before the workshop |
+| Blog | `/blog` | ✅ Merged | [#5](https://github.com/delowardev/ai-workshop-101/pull/5) | Acceptance criteria in `docs/acceptance-criteria/blog.md` are a draft and need review |
+| Features | `/features` | ⏳ Not started | — | |
+| Pricing | `/pricing` | ⏳ Not started | — | |
+
+### Tooling and docs
+
+| Item | Status | PR | Notes |
+|---|---|---|---|
+| `CLAUDE.md` | ✅ Merged | [#4](https://github.com/delowardev/ai-workshop-101/pull/4) | Commands, build/deploy notes, layout |
+| `/qa-tests` skill | 🚧 In progress | — | Tests desktop and mobile, sends screenshots, writes ClickUp ticket descriptions for bugs |
+| Progress tracker (this section) | 🚧 In review | — | |
+
+### Known issues
+
+- CI `test` job fails on `main`: `next-env.d.ts` is not generated before `npm run typecheck`, so `*.svg` imports fail and the browser tests never run. Fix: run `npx next typegen` before the type check in `.github/workflows/ci.yml`.
+- Blog page: possible extra gap above the newsletter email field at phone width (not yet confirmed).
+
 ## Try it yourself
 
 1. Open [claude.ai/code](https://claude.ai/code) and pick this repository.
