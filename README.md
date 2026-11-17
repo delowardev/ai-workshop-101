@@ -47,8 +47,8 @@ Updated as work lands. Each item is built in its own Claude Code session and shi
 | Item | Status | PR | Notes |
 |---|---|---|---|
 | `CLAUDE.md` | ✅ Merged | [#4](https://github.com/delowardev/ai-workshop-101/pull/4) | Commands, build/deploy notes, layout |
-| `/qa-tests` skill | 🚧 In progress | — | Tests desktop and mobile, sends screenshots, writes ClickUp ticket descriptions for bugs |
-| Progress tracker (this section) | 🚧 In review | — | |
+| `/qa-tests` skill | 👀 In review | [#6](https://github.com/delowardev/ai-workshop-101/pull/6) | Tests desktop and mobile, sends screenshots, writes ClickUp ticket descriptions for bugs |
+| Progress tracker (this section) | 👀 In review | [#7](https://github.com/delowardev/ai-workshop-101/pull/7) | |
 
 ### Known issues
 
