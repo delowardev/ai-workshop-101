@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import logoWhite from '@/assets/sender-logo-white.svg';
 import { footerColumns } from '@/content/site';
 
@@ -18,9 +19,9 @@ export function SiteFooter() {
               <div key={column.title} className="flex flex-col gap-3">
                 <h2 className="m-0 font-sans text-sm font-bold text-paper">{column.title}</h2>
                 {column.links.map((link) => (
-                  <a key={link} href="#" className="text-ink-200 no-underline hover:text-paper">
-                    {link}
-                  </a>
+                  <Link key={link.label} href={link.href} className="text-ink-200 no-underline hover:text-paper">
+                    {link.label}
+                  </Link>
                 ))}
               </div>
             ))}

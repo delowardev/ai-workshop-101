@@ -7,6 +7,8 @@ type Props = {
   /** "outlined" for light backgrounds, "plain" on colored ones */
   variant?: 'outlined' | 'plain';
   buttonClassName?: string;
+  /** Submit button text */
+  buttonLabel?: string;
   className?: string;
 };
 
@@ -14,7 +16,7 @@ type Props = {
  * Email capture form. This is a static concept site, so nothing is sent:
  * submitting only shows a confirmation message.
  */
-export function EmailSignup({ id, variant = 'outlined', buttonClassName = 'bg-brand-500 text-ink-900', className = '' }: Props) {
+export function EmailSignup({ id, variant = 'outlined', buttonClassName = 'bg-brand-500 text-ink-900', buttonLabel = 'Start free', className = '' }: Props) {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -43,7 +45,7 @@ export function EmailSignup({ id, variant = 'outlined', buttonClassName = 'bg-br
           type="submit"
           className={`cursor-pointer whitespace-nowrap rounded-full border-0 px-6 text-base font-bold ${buttonClassName}`}
         >
-          Start free
+          {buttonLabel}
         </button>
       </form>
       <p role="status" data-testid={`${id}-status`} className="m-0 min-h-5 text-sm">
