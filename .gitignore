@@ -6,3 +6,6 @@ playwright-report/
 next-env.d.ts
 *.tsbuildinfo
 out/
+
+# /qa-tests screenshots and reports
+qa-reports/
