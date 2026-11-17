@@ -28,6 +28,7 @@ npm test           # type check + browser tests (Playwright)
 | `.claude/settings.json` | Pre-approved test commands; blocks Claude from reading `workshop/` |
 | `.github/workflows/ci.yml` | Type check and browser tests on every pull request |
 | `.github/workflows/pages.yml` | Deploys the static site to GitHub Pages on every push to `main` |
+| `slides/claude-code-workshop.pdf` | The workshop slides (18 slides, PDF) |
 | `facilitator/` | Facilitator guide. Rename it to `workshop/` so Claude can't read it during demos. |
 
 ## Try it yourself
