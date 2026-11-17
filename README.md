@@ -24,16 +24,14 @@ npm test           # type check + browser tests (Playwright)
 | `e2e/` | Playwright tests, including phone-width checks |
 | `docs/acceptance-criteria/` | What each page must do; used in the QA demo |
 | `CLAUDE.md` | Team rules and design rules Claude reads at the start of every session |
-| `.claude/commands/` | Shared slash commands: `/fix-issue <n>` and `/qa-tests <page>` |
 | `.claude/settings.json` | Pre-approved test commands; blocks Claude from reading `workshop/` |
 | `.github/workflows/ci.yml` | Type check and browser tests on every pull request |
 | `.github/workflows/pages.yml` | Deploys the static site to GitHub Pages on every push to `main` |
 | `slides/claude-code-workshop.pdf` | The workshop slides (18 slides, PDF) |
-| `facilitator/` | Facilitator guide. Rename it to `workshop/` so Claude can't read it during demos. |
 
 ## Try it yourself
 
 1. Open [claude.ai/code](https://claude.ai/code) and pick this repository.
 2. Developers: ask Claude to build a new page and open a pull request.
-3. QA: run `/qa-tests homepage` and read the report.
+3. QA: ask Claude to turn `docs/acceptance-criteria/homepage.md` into Playwright tests and report what fails.
 4. Then try `/code-review` on any open pull request.
