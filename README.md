@@ -47,12 +47,14 @@ Updated as work lands. Each item is built in its own Claude Code session and shi
 | Item | Status | PR | Notes |
 |---|---|---|---|
 | `CLAUDE.md` | ✅ Merged | [#4](https://github.com/delowardev/ai-workshop-101/pull/4) | Commands, build/deploy notes, layout |
-| `/qa-tests` skill | 👀 In review | [#6](https://github.com/delowardev/ai-workshop-101/pull/6) | Tests desktop and mobile, sends screenshots, writes ClickUp ticket descriptions for bugs |
-| Progress tracker (this section) | 👀 In review | [#7](https://github.com/delowardev/ai-workshop-101/pull/7) | |
+| `/qa-tests` skill | ✅ Merged | [#6](https://github.com/delowardev/ai-workshop-101/pull/6) | Tests desktop and mobile, sends screenshots, writes ClickUp ticket descriptions for bugs |
+| Progress tracker (this section) | ✅ Merged | [#7](https://github.com/delowardev/ai-workshop-101/pull/7) | |
+| Logoipsum placeholder logo + noindex | 🚧 In progress | — | Replace Sender logo in header/footer; verify every page is `noindex` |
 
 ### Known issues
 
 - CI `test` job fails on `main`: `next-env.d.ts` is not generated before `npm run typecheck`, so `*.svg` imports fail and the browser tests never run. Fix: run `npx next typegen` before the type check in `.github/workflows/ci.yml`.
+- Homepage (found by `/qa-tests`): orange "hassle." in the hero headline fails AA contrast (2.95:1); the "New" pill is 36px tall (under the 44px minimum).
 - Blog page: possible extra gap above the newsletter email field at phone width (not yet confirmed).
 
 ## Try it yourself
