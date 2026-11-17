@@ -1,14 +1,14 @@
 {
-  "name": "quickcart",
+  "name": "sender-site",
   "version": "1.0.0",
   "private": true,
-  "description": "A tiny shopping cart (Next.js) used as the sample app for the Claude Code workshop.",
+  "description": "Marketing site redesign (Next.js) used as the sample project for the Claude Code workshop.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run",
+    "test": "tsc --noEmit && playwright test",
     "e2e": "playwright test"
   },
   "engines": {
@@ -21,10 +21,11 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4.3.5",
     "@types/node": "^22.20.5",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "typescript": "^5.9.3",
-    "vitest": "^3.2.7"
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5.9.3"
   }
 }

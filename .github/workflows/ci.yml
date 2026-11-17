@@ -16,8 +16,8 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - name: Unit tests
-        run: npm test
+      - name: Type check
+        run: npm run typecheck
       - name: Install Playwright browser
         run: npx playwright install --with-deps chromium
       - name: End-to-end tests

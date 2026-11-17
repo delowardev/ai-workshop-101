@@ -1,33 +1,47 @@
-# QuickCart
+# Sender marketing site (redesign)
 
-A small shopping cart built with Next.js (App Router), React and TypeScript, used as the sample app for our Claude Code workshop.
+The marketing site for Sender's redesign, built with Next.js (App Router), React, TypeScript and Tailwind CSS v4.
+It is a static site: it deploys to GitHub Pages as a static export, so there are no API routes or server code.
+Only the homepage exists so far; other pages (Features, Pricing, Blog) are built next.
 
 ## Commands
 
 - `npm install`: install dependencies
-- `npm run dev`: run the app on http://localhost:3000
+- `npm run dev`: run the site on http://localhost:3000
 - `npm run build`: production build (also catches type errors)
 - `npm run typecheck`: TypeScript check
-- `npm test`: unit tests (Vitest), in `tests/`
-- `npm run e2e`: end-to-end tests (Playwright), in `e2e/`. Starts the app itself on port 3100.
+- `npm run e2e`: end-to-end tests (Playwright), in `e2e/`. Starts the site itself on port 3100.
+- `npm test`: type check, then the end-to-end tests
 
 ## Layout
 
-- `src/lib/cart.ts`: all cart, discount and shipping logic (pure functions, no React or Next imports)
-- `src/lib/store.ts`: the in-memory cart and shared helpers for API routes
-- `src/app/api/**/route.ts`: the API (route handlers under `/api`)
-- `src/lib/client-api.ts`: how the UI reaches the cart (the API normally; in the browser for the static GitHub Pages build)
-- `src/app/page.tsx` and `src/components/`: the UI. `Shop.tsx` is the client component that owns state.
-- `docs/acceptance-criteria/`: what each feature must do. Treat these as the source of truth.
+- `src/app/`: routes. `page.tsx` is the homepage; a new page is `src/app/<name>/page.tsx`.
+- `src/app/globals.css`: design tokens (`@theme`) and shared type styles (`heading-section`, `eyebrow`)
+- `src/components/site/`: header and footer, shared by every page
+- `src/components/home/`: one component per homepage section
+- `src/components/ui/`: shared building blocks (`ButtonLink`, `EmailSignup`, icons)
+- `src/content/site.ts`: navigation, integrations and footer links
+- `src/assets/`: logos (SVG), imported so `next/image` adds the GitHub Pages base path
+- `docs/acceptance-criteria/`: what each page must do. Treat these as the source of truth.
+
+## Design rules
+
+- Use the tokens, never raw hex: `bg-paper`, `bg-sand`, `border-line`, `brand-50…900`, `ink-100…900`, `text-success`.
+- Fonts: `font-display` (Bricolage Grotesque) for headings, `font-sans` (Instrument Sans) for body and UI,
+  `font-mono` (IBM Plex Mono) for labels and numbers.
+- Orange `brand-500` is for fills and display type of 32px and up. Orange text on paper is `brand-700`.
+  Text on an orange surface is `ink-900`, never white.
+- One orange (primary) button per view. Buttons are pills with a minimum height of 44px.
+- Content is max 1200px wide with 24px side padding. Sections are 96–128px apart.
+- Every page must work at 390px wide with no horizontal scroll.
 
 ## Rules
 
-- Business logic belongs in `src/lib/cart.ts`, not in components or route handlers.
-- Money is always integer cents (`1250` = $12.50). Never use floats for money.
-- Bug fixes start with a failing test that reproduces the bug. Show it failing, then fix.
-- Make the smallest change that solves the problem. Don't refactor unrelated code.
-- Run `npm test` and `npm run e2e` before every commit. Both must pass.
-- New UI elements get a `data-testid` attribute; e2e tests select by `data-testid`.
-- E2E tests call `POST /api/cart/reset` in `beforeEach` so each test starts with an empty cart.
-- One issue per pull request. The PR description says what was wrong, what changed and how it was tested, and links the issue with `Fixes #N`.
+- Reuse the components in `src/components/site` and `src/components/ui` before writing new ones.
+- Images and logos go in `src/assets/` and are imported, never referenced as `/path` strings: plain paths break on GitHub Pages.
+- Accessible markup: real `<a>`, `<button>`, `<label>`; decorative illustrations get `aria-hidden="true"`.
+- Forms don't send anything: this is a static concept site.
+- New pages get a Playwright spec in `e2e/` covering their acceptance criteria, including the phone width.
+- Run `npm test` before every commit. It must pass.
+- One issue per pull request. The PR description says what changed and how it was tested, and links the issue with `Fixes #N`.
 - Never skip or delete a failing test to get a green build.

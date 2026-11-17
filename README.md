@@ -2,38 +2,37 @@
 
 Sample repo for a 30-minute workshop on using Claude Code (locally and in the cloud) for development and QA.
 
-The app is **QuickCart**, a deliberately small shopping cart with a few bugs left in on purpose.
-It's small enough to understand in a minute and real enough to show the full loop:
-issue → Claude Code session → failing test → fix → pull request → CI → human review.
+The project is a redesign concept of the **Sender** marketing site, built with Next.js, React, TypeScript and Tailwind CSS.
+The homepage is done; the other pages get built live during the workshop, which shows the full loop:
+issue → Claude Code session → page + tests → pull request → CI → human review → deployed.
 
-**Live demo:** https://delowardev.github.io/ai-workshop-101/ (the planted bugs are live there too)
+**Live site:** https://delowardev.github.io/ai-workshop-101/
 
 ## Run it
 
 ```bash
 npm install
 npm run dev        # http://localhost:3000
-npm test           # unit tests (Vitest)
-npm run e2e        # browser tests (Playwright)
+npm test           # type check + browser tests (Playwright)
 ```
 
 ## What's in here
 
 | Path | What it is |
 |---|---|
-| `src/` | The QuickCart app: Next.js App Router, React components and API route handlers (TypeScript) |
-| `tests/`, `e2e/` | Unit tests and Playwright tests |
-| `docs/acceptance-criteria/` | What each feature must do; used in the QA demo |
-| `CLAUDE.md` | Team rules Claude reads at the start of every session |
-| `.claude/commands/` | Shared slash commands: `/fix-issue <n>` and `/qa-tests <feature>` |
+| `src/` | The site: routes in `src/app`, sections in `src/components`, content in `src/content` |
+| `e2e/` | Playwright tests, including phone-width checks |
+| `docs/acceptance-criteria/` | What each page must do; used in the QA demo |
+| `CLAUDE.md` | Team rules and design rules Claude reads at the start of every session |
+| `.claude/commands/` | Shared slash commands: `/fix-issue <n>` and `/qa-tests <page>` |
 | `.claude/settings.json` | Pre-approved test commands; blocks Claude from reading `workshop/` |
-| `.github/workflows/ci.yml` | Runs both test suites on every pull request |
-| `.github/workflows/pages.yml` | Deploys a static build to GitHub Pages on every push to `main`. Pages has no server, so that build runs the cart in the browser. |
-| `facilitator/` | Facilitator guide, answer key and the GitHub issues to create. Rename it to `workshop/` so Claude can't read the answer key. |
+| `.github/workflows/ci.yml` | Type check and browser tests on every pull request |
+| `.github/workflows/pages.yml` | Deploys the static site to GitHub Pages on every push to `main` |
+| `facilitator/` | Facilitator guide. Rename it to `workshop/` so Claude can't read it during demos. |
 
 ## Try it yourself
 
 1. Open [claude.ai/code](https://claude.ai/code) and pick this repository.
-2. Developers: run `/fix-issue 2` and review the pull request it opens.
-3. QA: run `/qa-tests discount codes` and read the report.
+2. Developers: ask Claude to build a new page and open a pull request.
+3. QA: run `/qa-tests homepage` and read the report.
 4. Then try `/code-review` on any open pull request.
