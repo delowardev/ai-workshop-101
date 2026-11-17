@@ -1,23 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { formatCents, type Cart, type Product, type Totals } from '@/lib/cart';
+import { formatCents, type Product } from '@/lib/cart';
+import { cartApi, isStaticDemo, type CartState } from '@/lib/client-api';
 import { CartView } from './CartView';
 import { ProductList } from './ProductList';
 
-export type CartState = Cart & { totals: Totals };
+export type { CartState };
 type Message = { text: string; isError: boolean };
-
-async function api<T>(method: string, url: string, body?: unknown): Promise<T> {
-  const res = await fetch(url, {
-    method,
-    headers: body ? { 'Content-Type': 'application/json' } : undefined,
-    body: body ? JSON.stringify(body) : undefined,
-  });
-  const data = await res.json();
-  if (!res.ok) throw new Error(data.error);
-  return data as T;
-}
 
 export function Shop() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -25,8 +15,8 @@ export function Shop() {
   const [message, setMessage] = useState<Message>({ text: '', isError: false });
 
   useEffect(() => {
-    api<Product[]>('GET', '/api/products').then(setProducts);
-    api<CartState>('GET', '/api/cart').then(setCart);
+    cartApi.getProducts().then(setProducts);
+    cartApi.getCart().then(setCart);
   }, []);
 
   async function run(action: () => Promise<CartState>, success = '') {
@@ -38,17 +28,17 @@ export function Shop() {
     }
   }
 
-  const addToCart = (productId: string) =>
-    run(() => api('POST', '/api/cart/items', { productId, qty: 1 }));
-
-  const removeFromCart = (productId: string) =>
-    run(() => api('DELETE', `/api/cart/items/${productId}`));
-
-  const applyCode = (code: string) =>
-    run(() => api('POST', '/api/cart/discount', { code }), `Code ${code} applied`);
+  const addToCart = (productId: string) => run(() => cartApi.addItem(productId, 1));
+  const removeFromCart = (productId: string) => run(() => cartApi.removeItem(productId));
+  const applyCode = (code: string) => run(() => cartApi.applyCode(code), `Code ${code} applied`);
 
   return (
     <main>
+      {isStaticDemo && (
+        <p className="banner" data-testid="static-demo-banner">
+          Static demo: the cart runs in your browser and resets when you reload.
+        </p>
+      )}
       <ProductList products={products} onAdd={addToCart} />
       <section aria-labelledby="cart-heading">
         <h2 id="cart-heading">Your cart</h2>

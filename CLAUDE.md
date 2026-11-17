@@ -16,6 +16,7 @@ A small shopping cart built with Next.js (App Router), React and TypeScript, use
 - `src/lib/cart.ts`: all cart, discount and shipping logic (pure functions, no React or Next imports)
 - `src/lib/store.ts`: the in-memory cart and shared helpers for API routes
 - `src/app/api/**/route.ts`: the API (route handlers under `/api`)
+- `src/lib/client-api.ts`: how the UI reaches the cart (the API normally; in the browser for the static GitHub Pages build)
 - `src/app/page.tsx` and `src/components/`: the UI. `Shop.tsx` is the client component that owns state.
 - `docs/acceptance-criteria/`: what each feature must do. Treat these as the source of truth.
 

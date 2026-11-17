@@ -6,6 +6,8 @@ The app is **QuickCart**, a deliberately small shopping cart with a few bugs lef
 It's small enough to understand in a minute and real enough to show the full loop:
 issue → Claude Code session → failing test → fix → pull request → CI → human review.
 
+**Live demo:** https://delowardev.github.io/ai-workshop-101/ (the planted bugs are live there too)
+
 ## Run it
 
 ```bash
@@ -26,6 +28,7 @@ npm run e2e        # browser tests (Playwright)
 | `.claude/commands/` | Shared slash commands: `/fix-issue <n>` and `/qa-tests <feature>` |
 | `.claude/settings.json` | Pre-approved test commands; blocks Claude from reading `workshop/` |
 | `.github/workflows/ci.yml` | Runs both test suites on every pull request |
+| `.github/workflows/pages.yml` | Deploys a static build to GitHub Pages on every push to `main`. Pages has no server, so that build runs the cart in the browser. |
 | `facilitator/` | Facilitator guide, answer key and the GitHub issues to create. Rename it to `workshop/` so Claude can't read the answer key. |
 
 ## Try it yourself
