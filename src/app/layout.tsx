@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   title: 'Sender: email marketing without the hassle (redesign concept)',
   description: 'Redesign concept for the Sender marketing site.',
   // A concept, not the live site: keep it out of search engines.
-  robots: { index: false, follow: false },
+  robots: { index: false, follow: false, googleBot: { index: false, follow: false } },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
