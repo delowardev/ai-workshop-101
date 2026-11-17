@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import logoWhite from '@/assets/sender-logo-white.svg';
+import logoWhite from '@/assets/logo-white.svg';
 import { footerColumns } from '@/content/site';
 
 export function SiteFooter() {
@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-[1200px] flex-col gap-14 px-6 pt-[72px] pb-10">
         <div className="flex flex-wrap justify-between gap-12">
           <div className="flex max-w-[320px] flex-[1_1_260px] flex-col gap-4">
-            <Image src={logoWhite} alt="Sender" width={136} height={40} />
+            <Image src={logoWhite} alt="Logoipsum" width={136} height={40} />
             <p className="m-0 text-[15px] leading-[1.55]">
               Email and SMS marketing for businesses that would rather be running their business.
             </p>
